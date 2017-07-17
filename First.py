@@ -9,10 +9,10 @@ f=open('Plcace_ID.csv','w')
 writer=csv.writer(f)
 
 query=''#it takes search input eg. 'cafe+in+delhi'
+API_key=''#Insert your google places key here
 
 
-
-url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' +query+ '&region=in&key=AIzaSyATA5BmRaFHFIOR2_OYEo-AlkwK1RwmHek'
+url = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' +query+ '&region=in&key='+API_key+''
 response = urllib2.urlopen(url)
 
 while True:
@@ -28,7 +28,7 @@ while True:
 	#print placeid, name
         writer.writerow([name,placeid])
     time.sleep(2)
-    response = urllib2.urlopen('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + query + '&region=in&key=AIzaSyATA5BmRaFHFIOR2_OYEo-AlkwK1RwmHek&pagetoken=' + str(page_token) + '')	
+    response = urllib2.urlopen('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + query + '&region=in&key='+API_key+'&pagetoken=' + str(page_token) + '')	
     if page_token==None:
 	    break
     
