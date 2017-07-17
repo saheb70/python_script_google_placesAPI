@@ -2,11 +2,12 @@ import urllib2
 import json
 import csv
 import urllib
-#from tqdm import tqdm
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
+
+API_key=''#insert your google places api key here
 f=open('Details.csv','w')
 writer=csv.writer(f,delimiter='|')
 
@@ -14,7 +15,7 @@ with open('Plcace_ID.csv')as f:
 	rows=csv.reader(f)
 	for x in rows:
 		s=x[1]	
-		re=urllib2.urlopen('https://maps.googleapis.com/maps/api/place/details/json?placeid='+str(s)+'&key=AIzaSyATA5BmRaFHFIOR2_OYEo-AlkwK1RwmHek')
+		re=urllib2.urlopen('https://maps.googleapis.com/maps/api/place/details/json?placeid='+str(s)+'&key='API_key'')
 		ht=re.read()
 		s1=ht
 		s2=json.loads(s1)
