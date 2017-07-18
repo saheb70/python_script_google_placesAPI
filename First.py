@@ -3,6 +3,7 @@ import json
 import csv
 import urllib
 import sys
+import time
 reload(sys)
 sys.setdefaultencoding('utf8')
 f=open('Plcace_ID.csv','w')
